@@ -44,11 +44,11 @@ namespace kda_rank
                 {
                     score = ((kills * 100) + (assists * 50) - (deaths * 70)) * 3;
                 }
-                scoreLabel.Text = score.ToString();
+                scoreBox.Text = score.ToString();
             }
             catch
             {
-                scoreLabel.Text = "please enter in WHOLE NUMBERS";
+                scoreBox.Text = "please enter in WHOLE NUMBERS";
             }
         }
 

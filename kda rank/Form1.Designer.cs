@@ -33,6 +33,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.killBox = new System.Windows.Forms.TextBox();
             this.deathBox = new System.Windows.Forms.TextBox();
             this.assistBox = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.gamemodeComboBox = new System.Windows.Forms.ComboBox();
             this.gamemodeLabel = new System.Windows.Forms.Label();
             this.dufficultyLabel = new System.Windows.Forms.Label();
-            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scoreBox = new System.Windows.Forms.TextBox();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -82,6 +82,12 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.resetToolStripMenuItem.Text = "reset";
             // 
             // killBox
             // 
@@ -186,14 +192,9 @@
             this.dufficultyLabel.TabIndex = 12;
             this.dufficultyLabel.Text = "Difficulty";
             // 
-            // resetToolStripMenuItem
-            // 
-            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.resetToolStripMenuItem.Text = "reset";
-            // 
             // scoreBox
             // 
+            this.scoreBox.Enabled = false;
             this.scoreBox.Location = new System.Drawing.Point(70, 169);
             this.scoreBox.Name = "scoreBox";
             this.scoreBox.Size = new System.Drawing.Size(100, 20);
