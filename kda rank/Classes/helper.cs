@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace kda_rank.Classes
 {
-    class stats
+    class helper
     {
-        public List<match> matches { get; set; }
-        //public int score { for(int = 0; i < matches.leng>) }
+        public enum Difficulty { Recruit, Regular, Hard, Veteran };
     }
 }

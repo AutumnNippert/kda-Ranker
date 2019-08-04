@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using kda_rank.Classes;
+using Newtonsoft.Json;
 
 namespace kda_rank
 {
     public partial class Form1 : Form
     {
+        stats statistics;
+        match curMatch;
         public Form1()
         {
             InitializeComponent();
+
         }
         public void calcScore()
         {
@@ -44,7 +49,13 @@ namespace kda_rank
                 {
                     score = ((kills * 100) + (assists * 50) - (deaths * 70)) * 3;
                 }
-                scoreBox.Text = score.ToString();
+            match m = new match();
+            m.Kills = kills;
+            m.Kills = deaths;
+            m.Kills = assists;
+            m.Kills = score;
+
+            scoreBox.Text = score.ToString();
             }
             catch
             {
