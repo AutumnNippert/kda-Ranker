@@ -16,44 +16,7 @@ namespace kda_rank
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //not ready yet
-            //will write to a file
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CalculateButton_Click(object sender, EventArgs e)
+        public void calcScore()
         {
             int kills;
             int deaths;
@@ -81,17 +44,67 @@ namespace kda_rank
                 {
                     score = ((kills * 100) + (assists * 50) - (deaths * 70)) * 3;
                 }
-                rankLabel.Text = score.ToString();
+                scoreLabel.Text = score.ToString();
             }
             catch
             {
-                rankLabel.Text = "please enter in WHOLE NUMBERS";
+                scoreLabel.Text = "please enter in WHOLE NUMBERS";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            calcScore();
+        }
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            calcScore();
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void KillBox_TextChanged(object sender, EventArgs e)
+        {
+            calcScore();
+        }
+
+        private void DifficultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calcScore();
         }
     }
 }

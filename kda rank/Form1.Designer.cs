@@ -40,11 +40,12 @@
             this.killsLabel = new System.Windows.Forms.Label();
             this.deathsLabel = new System.Windows.Forms.Label();
             this.assistsLabel = new System.Windows.Forms.Label();
-            this.calculateButton = new System.Windows.Forms.Button();
-            this.rankLabel = new System.Windows.Forms.Label();
             this.gamemodeComboBox = new System.Windows.Forms.ComboBox();
             this.gamemodeLabel = new System.Windows.Forms.Label();
             this.dufficultyLabel = new System.Windows.Forms.Label();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scoreBox = new System.Windows.Forms.TextBox();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +53,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.resetToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(534, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,16 +85,17 @@
             // 
             // killBox
             // 
-            this.killBox.Location = new System.Drawing.Point(100, 50);
+            this.killBox.Location = new System.Drawing.Point(70, 31);
             this.killBox.Name = "killBox";
             this.killBox.Size = new System.Drawing.Size(100, 20);
             this.killBox.TabIndex = 1;
             this.killBox.Text = "0";
             this.killBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.killBox.TextChanged += new System.EventHandler(this.KillBox_TextChanged);
             // 
             // deathBox
             // 
-            this.deathBox.Location = new System.Drawing.Point(300, 50);
+            this.deathBox.Location = new System.Drawing.Point(70, 68);
             this.deathBox.Name = "deathBox";
             this.deathBox.Size = new System.Drawing.Size(100, 20);
             this.deathBox.TabIndex = 2;
@@ -102,7 +105,7 @@
             // 
             // assistBox
             // 
-            this.assistBox.Location = new System.Drawing.Point(500, 50);
+            this.assistBox.Location = new System.Drawing.Point(70, 103);
             this.assistBox.Name = "assistBox";
             this.assistBox.Size = new System.Drawing.Size(100, 20);
             this.assistBox.TabIndex = 3;
@@ -118,16 +121,17 @@
             "Regular",
             "Hard",
             "Veteran"});
-            this.difficultyComboBox.Location = new System.Drawing.Point(250, 140);
+            this.difficultyComboBox.Location = new System.Drawing.Point(292, 65);
             this.difficultyComboBox.Name = "difficultyComboBox";
             this.difficultyComboBox.Size = new System.Drawing.Size(200, 21);
             this.difficultyComboBox.TabIndex = 4;
             this.difficultyComboBox.Text = "Regular";
+            this.difficultyComboBox.SelectedIndexChanged += new System.EventHandler(this.DifficultyComboBox_SelectedIndexChanged);
             // 
             // killsLabel
             // 
             this.killsLabel.AutoSize = true;
-            this.killsLabel.Location = new System.Drawing.Point(135, 34);
+            this.killsLabel.Location = new System.Drawing.Point(12, 34);
             this.killsLabel.Name = "killsLabel";
             this.killsLabel.Size = new System.Drawing.Size(25, 13);
             this.killsLabel.TabIndex = 5;
@@ -136,7 +140,7 @@
             // deathsLabel
             // 
             this.deathsLabel.AutoSize = true;
-            this.deathsLabel.Location = new System.Drawing.Point(330, 34);
+            this.deathsLabel.Location = new System.Drawing.Point(10, 68);
             this.deathsLabel.Name = "deathsLabel";
             this.deathsLabel.Size = new System.Drawing.Size(41, 13);
             this.deathsLabel.TabIndex = 6;
@@ -145,30 +149,11 @@
             // assistsLabel
             // 
             this.assistsLabel.AutoSize = true;
-            this.assistsLabel.Location = new System.Drawing.Point(533, 34);
+            this.assistsLabel.Location = new System.Drawing.Point(12, 106);
             this.assistsLabel.Name = "assistsLabel";
             this.assistsLabel.Size = new System.Drawing.Size(39, 13);
             this.assistsLabel.TabIndex = 7;
             this.assistsLabel.Text = "Assists";
-            // 
-            // calculateButton
-            // 
-            this.calculateButton.Location = new System.Drawing.Point(250, 300);
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(199, 55);
-            this.calculateButton.TabIndex = 8;
-            this.calculateButton.Text = "Calculate";
-            this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
-            // 
-            // rankLabel
-            // 
-            this.rankLabel.Location = new System.Drawing.Point(300, 200);
-            this.rankLabel.Name = "rankLabel";
-            this.rankLabel.Size = new System.Drawing.Size(100, 75);
-            this.rankLabel.TabIndex = 9;
-            this.rankLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.rankLabel.Click += new System.EventHandler(this.Label1_Click);
             // 
             // gamemodeComboBox
             // 
@@ -176,7 +161,7 @@
             this.gamemodeComboBox.Items.AddRange(new object[] {
             "Team Deathmatch",
             "Free For All"});
-            this.gamemodeComboBox.Location = new System.Drawing.Point(250, 100);
+            this.gamemodeComboBox.Location = new System.Drawing.Point(292, 30);
             this.gamemodeComboBox.Name = "gamemodeComboBox";
             this.gamemodeComboBox.Size = new System.Drawing.Size(200, 21);
             this.gamemodeComboBox.TabIndex = 10;
@@ -185,7 +170,7 @@
             // gamemodeLabel
             // 
             this.gamemodeLabel.AutoSize = true;
-            this.gamemodeLabel.Location = new System.Drawing.Point(249, 84);
+            this.gamemodeLabel.Location = new System.Drawing.Point(225, 34);
             this.gamemodeLabel.Name = "gamemodeLabel";
             this.gamemodeLabel.Size = new System.Drawing.Size(61, 13);
             this.gamemodeLabel.TabIndex = 11;
@@ -195,22 +180,46 @@
             // dufficultyLabel
             // 
             this.dufficultyLabel.AutoSize = true;
-            this.dufficultyLabel.Location = new System.Drawing.Point(249, 124);
+            this.dufficultyLabel.Location = new System.Drawing.Point(225, 68);
             this.dufficultyLabel.Name = "dufficultyLabel";
             this.dufficultyLabel.Size = new System.Drawing.Size(47, 13);
             this.dufficultyLabel.TabIndex = 12;
             this.dufficultyLabel.Text = "Difficulty";
             // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.resetToolStripMenuItem.Text = "reset";
+            // 
+            // scoreBox
+            // 
+            this.scoreBox.Location = new System.Drawing.Point(70, 169);
+            this.scoreBox.Name = "scoreBox";
+            this.scoreBox.Size = new System.Drawing.Size(100, 20);
+            this.scoreBox.TabIndex = 13;
+            this.scoreBox.Text = "0";
+            this.scoreBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Location = new System.Drawing.Point(16, 172);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.scoreLabel.TabIndex = 14;
+            this.scoreLabel.Text = "Score";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 461);
+            this.ClientSize = new System.Drawing.Size(534, 261);
+            this.Controls.Add(this.scoreLabel);
+            this.Controls.Add(this.scoreBox);
             this.Controls.Add(this.dufficultyLabel);
             this.Controls.Add(this.gamemodeLabel);
             this.Controls.Add(this.gamemodeComboBox);
-            this.Controls.Add(this.rankLabel);
-            this.Controls.Add(this.calculateButton);
             this.Controls.Add(this.assistsLabel);
             this.Controls.Add(this.deathsLabel);
             this.Controls.Add(this.killsLabel);
@@ -223,6 +232,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KDA Ranker";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -245,11 +255,12 @@
         private System.Windows.Forms.Label killsLabel;
         private System.Windows.Forms.Label deathsLabel;
         private System.Windows.Forms.Label assistsLabel;
-        private System.Windows.Forms.Button calculateButton;
-        private System.Windows.Forms.Label rankLabel;
         private System.Windows.Forms.ComboBox gamemodeComboBox;
         private System.Windows.Forms.Label gamemodeLabel;
         private System.Windows.Forms.Label dufficultyLabel;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
+        private System.Windows.Forms.TextBox scoreBox;
+        private System.Windows.Forms.Label scoreLabel;
     }
 }
 
