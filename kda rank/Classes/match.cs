@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace kda_rank.Classes
 {
-    class match
+    class Match
     {
         public int Kills { get; set; }
         public int Deaths { get; set; }
         public int Assists { get; set; }
-        public int DateTime { get; set; }
+        public string DateTime { get; set; }
 
     }
 }

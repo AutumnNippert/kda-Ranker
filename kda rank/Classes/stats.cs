@@ -8,7 +8,7 @@ namespace kda_rank.Classes
 {
     class stats
     {
-        public List<match> matches { get; set; }
+        public List<Match> matches { get; set; }
         //public int score { for(int = 0; i < matches.leng>) }
     }
 }
