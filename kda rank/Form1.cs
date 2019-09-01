@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,10 @@ namespace kda_rank
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            StreamReader file = File.OpenText("stats.json");
+            //JsonTextReader reader = new JsonTextReader(file);
+            Match o1 = JsonConvert.DeserializeObject<Match>(file.ReadToEnd());
+            killBox.Text = o1.Kills.ToString();
         }
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +41,11 @@ namespace kda_rank
         private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void KillBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
